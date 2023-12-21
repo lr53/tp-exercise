@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: address_dim
+    description: details of agents from RightMove
+    columns:
+      - name: location_id
+        description: Primary key for address
+        tests:
+          - not_null
+          - unique

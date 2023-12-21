@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: properties_fact
+    description: Date-partitioned based table in which all GA4 analytics data is unified
+    columns:
+      - name: property_id
+        description: Surrogate key generated for each unique combination of (rightmove_id, date_added)
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: FK to address_dim (unique id for location)
+        tests:
+          - relationships:
+              to: ref('address_dim')
+              field: location_id
+      - name: property_type_id
+        description: FK to property_type_dim (unique id for type)
+        tests:
+          - relationships:
+              to: ref('property_type_dim')
+              field: property_type_id
+      - name: agent_id
+        description: FK to agent_dim (unique id for agent)
+        tests:
+          - relationships:
+              to: ref('agent_dim')
+              field: agent_id

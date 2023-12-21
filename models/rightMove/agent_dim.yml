@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: agent_dim
+    description: details of agents from RightMove
+    columns:
+      - name: agent_id
+        description: Primary key for agents
+        tests:
+          - not_null
+          - unique

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: property_type_dim
+    description: details of agents from RightMove
+    columns:
+      - name: property_type_id
+        description: Primary key for property type
+        tests:
+          - not_null
+          - unique
